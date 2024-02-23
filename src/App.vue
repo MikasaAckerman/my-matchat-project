@@ -20,42 +20,20 @@ export default {
 
 <template>
   <div id="app">
-    <NavigationBar />
-    <HeroSection />
-    <AboutSection />
-    <ServicesSection />
-    <PortfolioSection />
-    <TestimonialsSection />
-    <ContactSection />
-    <FooterSection />
+    <HomeView />
   </div>
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar.vue';
-import HeroSection from './components/HeroSection.vue';
-import AboutSection from './components/AboutSection.vue';
-import ServicesSection from './components/ServicesSection.vue';
-import PortfolioSection from './components/PortfolioSection.vue';
-import TestimonialsSection from './components/TestimonialsSection.vue';
-import ContactSection from './components/ContactSection.vue';
-import FooterSection from './components/FooterSection.vue';
+import HomeView from './views/HomeView.vue';
 
 export default {
   name: 'App',
   components: {
-    NavigationBar,
-    HeroSection,
-    AboutSection,
-    ServicesSection,
-    PortfolioSection,
-    TestimonialsSection,
-    ContactSection,
-    FooterSection
+    HomeView
   }
 }
 </script>
-
 
 <style>
 #app {
@@ -64,6 +42,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>

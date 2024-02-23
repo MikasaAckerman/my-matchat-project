@@ -2,8 +2,8 @@
   <div class="home">
     <NavigationBar />
     <HeroSection />
-    <AboutSection />
     <ServicesSection />
+    <AboutSection />
     <PortfolioSection />
     <TestimonialsSection />
     <ContactSection />
@@ -27,8 +27,8 @@ export default {
   components: {
     NavigationBar,
     HeroSection,
-    AboutSection,
     ServicesSection,
+    AboutSection,
     PortfolioSection,
     TestimonialsSection,
     ContactSection,
@@ -37,8 +37,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .hero {
+  
   background-color: white;
   color: #3a5a40; /* Darker matcha green for text */
   padding: 2rem;
@@ -47,9 +48,9 @@ export default {
 
 /* Navigation bar styling */
 nav {
-  background-color: #81c784; /* Matcha green background */
+  background-color: #80B966; /* Matcha green background */
   /* Other styles */
 }
 
 /* Other component styles */
-</style>
+</style> -->
