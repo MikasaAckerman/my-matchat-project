@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar"  :style="`background-color: rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, ${currentColor.a})`">
     <div class="container">
-      <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo">
+      <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
@@ -41,6 +41,14 @@ export default {
     this.currentColor.b = Math.round(this.startColor.b + (this.endColor.b - this.startColor.b) * scrollPercentage);
     this.currentColor.a = this.startColor.a + (this.endColor.a - this.startColor.a) * scrollPercentage;
   },
+
+  goToHomePage() {
+      this.$router.push('/'); // 假设你的主页路由是 '/'
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // 为滚动添加平滑过渡效果
+      });
+    },
 },
 };
 </script>

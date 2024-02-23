@@ -52,14 +52,14 @@ html, body {
     background-image: url('@/assets/hero-bg.jpg');
     background-size: cover;
     background-position: center top;
-        background-attachment: fixed;
+    background-attachment: fixed;
     height: calc(100vh);
     position: relative;
   }
   
   .hero-content {
     text-align: center;
-    color: #8b9c78; 
+    color: #73a85a; 
   }
 
   .text-background {
