@@ -2,7 +2,7 @@
     <section class="hero">
       <div class="hero-content">
         <div class="text-background">
-          <h1>Matchat</h1>
+          <h1>MatChat</h1>
         </div>
         <div class="text-background">
           <p></p>

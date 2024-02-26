@@ -3,6 +3,7 @@
     <NavigationBar />
     <HeroSection />
     <ServicesSection />
+    <TechnologySection />
     <AboutSection />
     <PortfolioSection />
     <TestimonialsSection />
@@ -17,6 +18,7 @@ import NavigationBar from '@/components/NavigationBar.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import AboutSection from '@/components/AboutSection.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
+import TechnologySection from '@/components/TechnologySection.vue';
 import PortfolioSection from '@/components/PortfolioSection.vue';
 import TestimonialsSection from '@/components/TestimonialsSection.vue';
 import ContactSection from '@/components/ContactSection.vue';
@@ -28,6 +30,7 @@ export default {
     NavigationBar,
     HeroSection,
     ServicesSection,
+    TechnologySection,
     AboutSection,
     PortfolioSection,
     TestimonialsSection,

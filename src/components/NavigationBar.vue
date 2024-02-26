@@ -3,7 +3,8 @@
     <div class="container">
       <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
-        <li><a href="#services">Services</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#technology">テクノロジー</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
@@ -78,6 +79,7 @@ export default {
 .navbar-logo {
   max-width: 50px; /* Adjust logo size */
   border-radius: 50%; 
+  margin-top: -6px;
 }
 
 .navbar-links {

@@ -54,16 +54,16 @@
   }
 
   .service-card {
-  background-color: #ced9dc; /* 卡片背景色 */
-  border-radius: 15px; /* 卡片圆角 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 卡片阴影 */
-  overflow: hidden; /* 确保所有子元素都被包含在圆角内 */
-  margin: 0.5rem; /* 卡片间距 */
-  transition: transform 0.3s; /* 鼠标悬停时的变换效果 */
-  max-width: 20rem;
-  position: relative;
-  flex-grow: 1;
-}
+    background-color: #ced9dc; /* 卡片背景色 */
+    border-radius: 15px; /* 卡片圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 卡片阴影 */
+    overflow: hidden; /* 确保所有子元素都被包含在圆角内 */
+    margin: 0.5rem; /* 卡片间距 */
+    transition: transform 0.3s; /* 鼠标悬停时的变换效果 */
+    max-width: 20rem;
+    position: relative;
+    flex-grow: 1;
+  }
 
 .service-card-content {
   padding: 20px; /* 内边距 */
@@ -85,7 +85,7 @@
 }
 
 
-/* @media (max-width: 600px) { 
+/* @media (max-width: 768px) { 
   .service-card {
     flex: 0 1 100%; 
   }
@@ -96,10 +96,11 @@
   flex: 1 1 300px; /* 默认情况下，每个卡片至少占用300px的空间，可以根据需要调整 */
   margin: 10px; /* 添加一些间隔 */
   display: flex; /* 让卡片容器也成为flex容器 */
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center; /* 水平居中对齐 */
 }
 
-@media (max-width: 600px) { /* 600px为例，可以根据实际需求调整 */
+@media (max-width: 768px) { /* 600px为例，可以根据实际需求调整 */
   .service-card-container {
     flex: 1 1 100%; /* 在小屏幕上，卡片占满整个容器宽度 */
   }
