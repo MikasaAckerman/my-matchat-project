@@ -16,12 +16,8 @@
 // Importing the components used on the home page
 import NavigationBar from '@/components/NavigationBar.vue';
 import HeroSection from '@/components/HeroSection.vue';
-import AboutSection from '@/components/AboutSection.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import TechnologySection from '@/components/TechnologySection.vue';
-import PortfolioSection from '@/components/PortfolioSection.vue';
-import TestimonialsSection from '@/components/TestimonialsSection.vue';
-import ContactSection from '@/components/ContactSection.vue';
 import FooterSection from '@/components/FooterSection.vue';
 
 export default {
@@ -31,10 +27,6 @@ export default {
     HeroSection,
     ServicesSection,
     TechnologySection,
-    AboutSection,
-    PortfolioSection,
-    TestimonialsSection,
-    ContactSection,
     FooterSection
   }
 };

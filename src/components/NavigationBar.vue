@@ -1,14 +1,12 @@
 <template>
   <nav class="navbar"  :style="`background-color: rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, ${currentColor.a})`">
+    <button class="hamburger" aria-label="Toggle navigation menu">☰</button>
     <div class="container">
       <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
         <li><a href="#services">サービス</a></li>
         <li><a href="#technology">テクノロジー</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">企業情報</a></li>
       </ul>
     </div>
   </nav>
@@ -68,6 +66,10 @@ export default {
   height: 67px;
 }
 
+.hamburger {
+  display: none;
+}
+
 .container {
   /* max-width: 1200px; */
   margin: 0 auto;
@@ -103,5 +105,17 @@ export default {
 
 .navbar-links a:hover {
   color: #81c784; /* Color on hover */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .container {
+    display: none; /* 默认隐藏 */
+  }
+  .container.active {
+    display: block; /* 点击汉堡菜单后显示 */
+  }
 }
 </style>

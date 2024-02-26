@@ -30,7 +30,7 @@
         <img src="@/assets/deviceframes-3.png" alt="App Image">
        </div>
        <div class="app-description">
-        <h3>MatChatアプリ</h3>
+        <h3>自社開発MatChatアプリ</h3>
         <p align="left">中国ではChatGPTへのアクセスが規制されている状況を背景に、ChatGPT公式アプリの登場に先駆けて、中国国内のユーザーがChatGPTにアクセスできるようにするための専用アプリを開発しました。このアプリは、日本のAmazon Web Servicesのサーバーを利用し、REST APIを通じてChatGPTからAmazon Cloud in Japanを経由し、中国へと情報を届ける経路を提供しました。
           <br><br>さらに、利用者のメッセージ数に応じた料金設定を導入し、その後トークン数に基づく料金体系へと移行しました。
           <br><br>一方で、ChatGPTの公式アプリがリリースされたことで、当アプリの市場競争力に影響が出ることが予想されます。</p>
