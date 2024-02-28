@@ -27,21 +27,3 @@ export default {
   }
 };
 </script>
-
-<!-- <style scoped>
-.hero {
-  
-  background-color: white;
-  color: #3a5a40; /* Darker matcha green for text */
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Navigation bar styling */
-nav {
-  background-color: #80B966; /* Matcha green background */
-  /* Other styles */
-}
-
-/* Other component styles */
-</style> -->
