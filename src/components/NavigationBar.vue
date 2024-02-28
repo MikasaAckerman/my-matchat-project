@@ -6,6 +6,7 @@
       <ul class="navbar-links">
         <li><a href="#services">サービス</a></li>
         <li><a href="#technology">テクノロジー</a></li>
+        <li><a href="#news">ニュース</a></li>
         <li @click="toggleSubmenu">
           <a>会社情報</a>
           <!-- 次级菜单 -->
