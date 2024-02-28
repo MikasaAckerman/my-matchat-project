@@ -4,10 +4,6 @@
     <HeroSection />
     <ServicesSection />
     <TechnologySection />
-    <AboutSection />
-    <PortfolioSection />
-    <TestimonialsSection />
-    <ContactSection />
     <FooterSection />
   </div>
 </template>
