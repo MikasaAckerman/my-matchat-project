@@ -28,16 +28,21 @@
 // New way (Vue Router with Vue 3)
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
+import CompanyView from '@/views/CompanyView.vue';
 
 // Vue.use(Router); // This is no longer needed with Vue 3
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: HomeView,
   },
-  // ... other route definitions
+  {
+    path: '/company',
+    name: 'company',
+    component: CompanyView,
+  },
 ];
 
 const router = createRouter({

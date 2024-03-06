@@ -209,6 +209,13 @@
   right: 10px;
   width: 200px; /* 根据实际图片大小调整 */
   height: auto;
+  transition: filter 0.3s ease; /* 添加平滑过渡效果 */
+}
+
+.decorative-image:hover {
+  /* 鼠标悬停时的样式，例如改变亮度或添加滤镜 */
+  filter: brightness(0.8); /* 示例：降低亮度 */
+  /* 或者使用其他CSS属性来改变外观，如边框、背景色等 */
 }
 
 .app-description, .decorative-image {

@@ -4,14 +4,14 @@
     <div class="container">
       <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
-        <li><a href="#services">サービス</a></li>
-        <li><a href="#technology">テクノロジー</a></li>
-        <li><a href="#news">ニュース</a></li>
-        <li @click="toggleSubmenu">
-          <a>会社情報</a>
+        <li @click="goToSection('services')"><span>サービス</span></li>
+        <li @click="goToSection('technology')"><span>テクノロジー</span></li>
+        <li @click="goToSection('news')"><span>ニュース</span></li>
+        <li @click.stop="toggleSubmenu" ref="toggleButton">
+          <a><span>会社情報</span></a>
           <!-- 次级菜单 -->
-          <div v-if="isSubmenuVisible" class="submenu">
-            <a href="#">会社概要</a>
+          <div v-if="isSubmenuVisible" class="submenu" ref="submenu">
+            <router-link to="/company">会社概要</router-link>
             <a href="#">採用情報</a>
           </div>
         </li>
@@ -35,9 +35,11 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    document.addEventListener('click', this.handleClickOutside);
   },
   beforeUnmount() { // Vue 3的生命周期钩子，Vue 2中使用beforeDestroy
     window.removeEventListener('scroll', this.handleScroll);
+    document.removeEventListener('click', this.handleClickOutside);
   },
   methods: {
     handleScroll() {
@@ -62,6 +64,23 @@ export default {
     // 切换次级菜单的显示状态
     toggleSubmenu() {
       this.isSubmenuVisible = !this.isSubmenuVisible;
+    },
+
+    handleClickOutside(event) {
+      // 检查点击事件是否发生在submenu或触发submenu的按钮上
+      if (this.$refs.submenu && !this.$refs.submenu.contains(event.target) && !this.$refs.toggleButton.contains(event.target)) {
+        this.isSubmenuVisible = false;
+      }
+    },
+
+    goToSection(sectionId) {
+      if (sectionId) {
+        this.$router.push('/').then(() => {
+          window.location.hash = sectionId;
+        });
+      } else {
+        this.$router.push('/');
+      }
     },
   },
 };
@@ -96,6 +115,7 @@ export default {
   font-size: 0.8rem; /* 字体大小小于主链接 */
   color: #fff; /* 字体颜色 */
   padding:8px; /* 上下有8px的padding，左右无 */
+  text-decoration: none;
 }
 
 .container {
@@ -122,15 +142,17 @@ export default {
 
 .navbar-links li {
   margin-left: 20px; /* Adjust spacing between nav items */
+  cursor: pointer; /* 添加手形光标以改善用户体验 */
 }
 
-.navbar-links a {
+.navbar-links span {
   color: #fff; /* Set text color */
   text-decoration: none;
   transition: color 0.3s ease;
+  cursor: pointer; /* 确保文本可点击时显示手形光标 */
 }
 
-.navbar-links a:hover {
+.navbar-links span:hover {
   color: #81c784; /* Color on hover */
 }
 

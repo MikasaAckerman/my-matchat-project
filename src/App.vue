@@ -1,36 +1,20 @@
-<!-- <template>
+<template>
   <div id="app">
     <NavigationBar />
-    <Home />
+    <router-view></router-view>
+    <FooterSection />
   </div>
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar.vue';
-import Home from './views/Home.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
+import FooterSection from '@/components/FooterSection.vue';
 
 export default {
   name: 'App',
   components: {
     NavigationBar,
-    Home
-  }
-}
-</script> -->
-
-<template>
-  <div id="app">
-    <HomeView />
-  </div>
-</template>
-
-<script>
-import HomeView from './views/HomeView.vue';
-
-export default {
-  name: 'App',
-  components: {
-    HomeView
+    FooterSection
   }
 }
 </script>

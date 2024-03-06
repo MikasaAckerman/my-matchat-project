@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       newsList: [
-          { id: 1, imageUrl: require('@/assets/logo.png'), date: '2024年3月1日', title: '東京都内にマッチャット株式会社創立'},
+          { id: 1, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年3月1日', title: '東京でマッチャット株式会社設立'},
       ],
     };
   },
@@ -42,6 +42,8 @@ export default {
   align-items: center; /* 子元素居中 */
   max-width: 800px; /* 根据实际需求调整 */
   margin: 0 auto; /* 水平居中 */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .news-title {
@@ -65,7 +67,7 @@ export default {
   width: 100px; /* 根据实际情况调整 */
   height: 100px; /* 根据实际情况调整 */
   object-fit: cover; /* 确保图片覆盖整个区域 */
-  border: 1px solid #80b9662d; 
+  border: 1px solid #ccc; 
 }
 
 .news-content {
