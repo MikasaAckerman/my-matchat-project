@@ -1,9 +1,10 @@
 <template>
-  <nav class="navbar"  :style="`background-color: rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, ${currentColor.a})`">
+  <nav class="navbar"  :style="navbarStyle">
     <button class="hamburger" aria-label="Toggle navigation menu">☰</button>
     <div class="container">
       <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
+        <li @click="goToSection('home')"><span>ホーム</span></li>
         <li @click="goToSection('services')"><span>サービス</span></li>
         <li @click="goToSection('technology')"><span>テクノロジー</span></li>
         <li @click="goToSection('news')"><span>ニュース</span></li>
@@ -41,8 +42,25 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
     document.removeEventListener('click', this.handleClickOutside);
   },
+  computed: {
+    navbarStyle() {
+      // 默认使用currentColor进行背景颜色的设置
+      let backgroundColor = `rgba(${this.currentColor.r}, ${this.currentColor.g}, ${this.currentColor.b}, ${this.currentColor.a})`;
+      
+      // 如果当前路由是公司信息页面，改变背景颜色
+      if (this.$route.path === '/company') {
+        backgroundColor = `rgba(${this.currentColor.r}, ${this.currentColor.g}, ${this.currentColor.b}, ${this.currentColor.a})`; // 请替换'特定颜色'为您想要的颜色
+      }
+      
+      return { backgroundColor };
+    }
+  },
   methods: {
     handleScroll() {
+      if (this.$route.path === '/company') {
+        return;
+      }
+
       const maxScroll = 200; // 滚动多少距离后颜色变化完成
       const scrollPercentage = Math.min(window.scrollY / maxScroll, 1); // 计算滚动比例
 
@@ -77,6 +95,12 @@ export default {
       if (sectionId) {
         this.$router.push('/').then(() => {
           window.location.hash = sectionId;
+          if (sectionId == 'home') {
+            window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // 为滚动添加平滑过渡效果
+          });
+          }
         });
       } else {
         this.$router.push('/');
