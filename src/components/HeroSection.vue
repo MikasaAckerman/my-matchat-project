@@ -4,9 +4,9 @@
         <div class="text-background">
           <h1>MatChat</h1>
         </div>
-        <div class="text-background">
+        <!-- <div class="text-background">
           <p></p>
-        </div>
+        </div> -->
         <!-- <button class="cta-button">Contact Us</button> -->
       </div>
     </section>
@@ -29,6 +29,14 @@
   }
   };
 
+  function resizeBackground() {
+  var hero = document.querySelector('.hero');
+  hero.style.height = window.innerHeight + 'px';
+  hero.style.width = window.innerWidth + 'px';
+}
+
+window.addEventListener('resize', resizeBackground);
+window.addEventListener('DOMContentLoaded', resizeBackground);
   </script>
   
 
@@ -51,12 +59,43 @@ html, body {
     justify-content: center;
     background-image: url('@/assets/hero-bg.jpg');
     background-size: cover;
-    background-position: center top;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     height: calc(100vh);
     position: relative;
+
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover; 
+
   }
-  
+
+  /* body {
+    background: url('@/assets/hero-bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover; 
+    }
+
+    html { 
+  background: url('@/assets/hero-bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+   */
   .hero-content {
     text-align: center;
     color: #73a85a; 
@@ -95,5 +134,12 @@ html, body {
       background-color: #81c784; /* Slightly darker on hover */
     }
   }
+
+  @media only screen and (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+    background-repeat: repeat;
+  }
+}
   </style>
   

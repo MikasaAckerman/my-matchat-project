@@ -183,13 +183,13 @@ export default {
 @media (max-width: 768px) {
   .submenu a {
     display: block; /* 使链接独占一行 */
-    font-size: 0.6rem; /* 字体大小小于主链接 */
+    font-size: 0.5rem; /* 字体大小小于主链接 */
     color: #fff; /* 字体颜色 */
     padding:8px; /* 上下有8px的padding，左右无 */
   }
 
   .navbar-links {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   .hamburger {
@@ -201,6 +201,16 @@ export default {
   }
   .container.active {
     display: block; /* 点击汉堡菜单后显示 */
+  }
+}
+
+@media (max-width: 400px) {
+  .submenu a {
+    font-size: 0.4rem; /* 字体大小小于主链接 */
+  }
+
+  .navbar-links {
+    font-size: 0.5rem;
   }
 }
 </style>

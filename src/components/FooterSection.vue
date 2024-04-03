@@ -4,13 +4,13 @@
       <canvas id="waveCanvas"></canvas>
       <div class="footer-content">
         <div class="footer-left">
-          <h2>MatChat</h2>
+          <h2>MatChat株式会社</h2>
           <p class="copyright">&copy; {{ new Date().getFullYear() }} MatChat. All rights reserved.</p>
         </div>
         <div class="footer-right">
           <h2>お問い合わせ</h2>
-          <p>Email: contact@matchat.com</p>
-          <p>Address: 1234 Street Name, City</p>
+          <p>Email: support@matchat.co.jp</p>
+          <p>Address: 〒150-0043 東京都渋谷区<br>道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F-C</p>
         </div>
       </div>
     </div>
