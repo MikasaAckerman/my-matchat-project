@@ -13,7 +13,7 @@
           <!-- 次级菜单 -->
           <div v-if="isSubmenuVisible" class="submenu" ref="submenu">
             <router-link to="/company">会社概要</router-link>
-            <a href="#">採用情報</a>
+            <router-link to="/recruit">採用情報</router-link>
           </div>
         </li>
       </ul>
@@ -48,8 +48,8 @@ export default {
       let backgroundColor = `rgba(${this.currentColor.r}, ${this.currentColor.g}, ${this.currentColor.b}, ${this.currentColor.a})`;
       
       // 如果当前路由是公司信息页面，改变背景颜色
-      if (this.$route.path === '/company') {
-        backgroundColor = `rgba(${this.currentColor.r}, ${this.currentColor.g}, ${this.currentColor.b}, ${this.currentColor.a})`; // 请替换'特定颜色'为您想要的颜色
+      if (this.$route.path === '/company' || this.$route.path === '/recruit') {
+        backgroundColor = `rgba(48, 81, 88, 1)`; // 请替换'特定颜色'为您想要的颜色
       }
       
       return { backgroundColor };
@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      if (this.$route.path === '/company') {
+      if (this.$route.path === '/company' || this.$route.path === '/recruit') {
         return;
       }
 
@@ -153,6 +153,7 @@ export default {
 .navbar-logo {
   max-width: 50px; /* Adjust logo size */
   border-radius: 50%; 
+  cursor: pointer;
 }
 
 .navbar-links {

@@ -29,6 +29,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import CompanyView from '@/views/CompanyView.vue';
+import RecruitView from '@/views/RecruitView.vue';
 
 // Vue.use(Router); // This is no longer needed with Vue 3
 
@@ -42,6 +43,11 @@ const routes = [
     path: '/company',
     name: 'company',
     component: CompanyView,
+  },
+  {
+    path: '/recruit',
+    name: 'recruit',
+    component: RecruitView,
   },
 ];
 

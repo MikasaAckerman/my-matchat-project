@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       newsList: [
-          { id: 1, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年3月1日', title: '東京でマッチャット株式会社設立'},
+          { id: 1, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年4月', title: '東京でマッチャット株式会社設立'},
       ],
     };
   },
