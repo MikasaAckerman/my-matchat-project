@@ -205,13 +205,15 @@ export default {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
   .submenu a {
     font-size: 0.4rem; /* 字体大小小于主链接 */
+    font-weight: bold;
   }
 
   .navbar-links {
     font-size: 0.5rem;
+    font-weight: bold;
   }
 }
 </style>

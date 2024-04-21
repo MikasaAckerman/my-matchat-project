@@ -1,7 +1,7 @@
 <template>
   <footer class="site-footer">
     <div class="footer-background">
-      <canvas id="waveCanvas"></canvas>
+      <canvas id="waveCanvas" ref="waveCanvas"></canvas>
       <div class="footer-content">
         <div class="footer-left">
           <h2>MatChat株式会社</h2>
@@ -21,13 +21,28 @@
 <script>
 export default {
   name: 'FooterSection',
+  data() {
+    return {
+      animationFrameId: null,
+    };
+  },
   mounted() {
     this.drawWave();
+    window.addEventListener('resize', () => {
+      this.stopWave(); // Stop current animation
+      this.resizeCanvas(this.$refs.waveCanvas);
+      this.drawWave(); // Restart animation
+    });
+  },
+  beforeUnmount() { 
+    this.stopWave();
+    window.removeEventListener('resize', this.resizeCanvas);
   },
   methods: {
     drawWave() {
       const canvas = document.getElementById('waveCanvas');
       const ctx = canvas.getContext('2d');
+      this.resizeCanvas(canvas); // Initial resize
       canvas.width = window.innerWidth;
       canvas.height = 20; // 根据需要调整
 
@@ -36,8 +51,8 @@ export default {
       let waveLength = 250; // 波长
       let yOffset = waveHeight; // Y轴偏移量，调整以适应你的footer高度
 
-      function animate() {
-        requestAnimationFrame(animate);
+      const animate = () => {
+        this.animationFrameId = requestAnimationFrame(animate);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.beginPath();
@@ -58,6 +73,14 @@ export default {
 
       animate();
     },
+
+    stopWave() {
+      cancelAnimationFrame(this.animationFrameId);
+    },
+    resizeCanvas(canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = 20;  // Adjust the height as needed
+    }
   },
 };
 </script>
