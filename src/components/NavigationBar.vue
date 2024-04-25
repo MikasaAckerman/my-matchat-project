@@ -61,7 +61,7 @@ export default {
         return;
       }
 
-      const maxScroll = 200; // 滚动多少距离后颜色变化完成
+      const maxScroll = 500; // 滚动多少距离后颜色变化完成
       const scrollPercentage = Math.min(window.scrollY / maxScroll, 1); // 计算滚动比例
 
       // 计算当前颜色

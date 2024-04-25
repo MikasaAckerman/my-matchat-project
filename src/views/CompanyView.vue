@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 .app-image {
-  top: 50px;
+  padding-top: 50px;
 }
 
 .info-list {
