@@ -5,7 +5,7 @@
       <img src="@/assets/logo.png" alt="Company Logo" class="navbar-logo" @click="goToHomePage">
       <ul class="navbar-links">
         <li @click="goToSection('home')"><span>ホーム</span></li>
-        <li @click="goToSection('services')"><span>サービス</span></li>
+        <li @click="goToSection('services')"><span>事業内容</span></li>
         <li @click="goToSection('technology')"><span>テクノロジー</span></li>
         <li @click="goToSection('news')"><span>ニュース</span></li>
         <li @click.stop="toggleSubmenu" ref="toggleButton">

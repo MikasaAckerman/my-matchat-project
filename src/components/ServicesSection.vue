@@ -1,7 +1,7 @@
 <template>
     <section id="services" class="section-services">
 
-      <h2>サービス</h2>
+      <h2>事業内容</h2>
 
       <div class="services-container">
         
@@ -33,8 +33,10 @@
     data() {
       return {
         services: [
-          { id: 1, path: require('@/assets/service_system.png'), title: 'システム構築・開発', description: '高度な技術力とAIを駆使して、短納期、低コスト、そして高品質を兼ね備えた様々なシステム開発サービスをご提供します。一方、お客様に最適な開発手法（請負、常駐、ラボ型開発）をご提案させていただきます。' },
-          { id: 2, path: require('@/assets/service_business.png'), title: 'ビジネスソリューション', description: 'ITに関する様々な経営課題にお応えする、当社が提供する各種エンジニアリングサービスは、お客様の売上増加やコスト削減を最大の目的としたソリューションです。経験豊富なエンジニアと技術力を求めている企業をマッチングし、お客様先でプロジェクト単位の技術支援、開発支援を行います。' },
+          { id: 1, path: require('@/assets/service_app.png'), title: '自社開発アプリの運営', description: '中国市場向けのアプリ「Matchat」は、他の競合製品と比べて、ネットの壁を越えられ、ChatGPTが利用でき、より高度な対話機能とユーザーエクスペリエンスを提供します。' },
+          { id: 2, path: require('@/assets/service_system.png'), title: 'システム構築・開発', description: '高度な技術力とAIを駆使して、短納期、低コスト、そして高品質を兼ね備えた様々なシステム開発サービスをご提供します。一方、お客様に最適な開発手法（請負、常駐、ラボ型開発）をご提案させていただきます。' },
+          { id: 3, path: require('@/assets/service_business.png'), title: 'ビジネスソリューション', description: 'ITに関する様々な経営課題にお応えする、当社が提供する各種エンジニアリングサービスは、お客様の売上増加やコスト削減を最大の目的としたソリューションです。経験豊富なエンジニアと技術力を求めている企業をマッチングし、お客様先でプロジェクト単位の技術支援、開発支援を行います。' },
+          { id: 4, path: require('@/assets/service_offshore.png'), title: 'オフショア開発', description: '経費削減・生産性・海外人材採用を向上するため、システム・WEBシステム・アプリなどのソフトウェアの設計、開発、インフラ構築、運用保守などの作業を海外に委託業務もしています。' },
         ],
       };
     },
