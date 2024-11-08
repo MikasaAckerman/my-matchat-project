@@ -23,6 +23,8 @@ export default {
   data() {
     return {
       newsList: [
+          { id: 3, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年7月', title: 'ENEOSプロジェクトに参画しておりました'},
+          { id: 2, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年6月', title: 'Accentureとのプロジェクトに参画しておりました'},
           { id: 1, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年4月', title: '東京でマッチャット株式会社設立'},
       ],
     };
