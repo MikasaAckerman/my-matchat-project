@@ -1,0 +1,1 @@
+//churomeのページ読み込み時にtransitionが当たる現象をscript発火で抑制する。中身は空で良い。

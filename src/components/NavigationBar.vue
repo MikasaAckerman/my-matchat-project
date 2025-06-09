@@ -8,6 +8,7 @@
         <li @click="goToSection('services')"><span>事業内容</span></li>
         <li @click="goToSection('technology')"><span>テクノロジー</span></li>
         <li @click="goToSection('news')"><span>ニュース</span></li>
+        <!-- <router-link to="/travel">トラベル</router-link> -->
         <li @click.stop="toggleSubmenu" ref="toggleButton">
           <a><span>会社情報</span></a>
           <!-- 次级菜单 -->
