@@ -32,23 +32,44 @@ import CompanyView from '@/views/CompanyView.vue';
 import RecruitView from '@/views/RecruitView.vue';
 import TravelView from '@/views/TravelView.vue';
 
+import IndexView from '@/views/IndexView.vue';
+
+
 // Vue.use(Router); // This is no longer needed with Vue 3
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: IndexView,
+    children: [
+      {
+        path: '',
+        component: HomeView,
+      }
+    ],
   },
   {
     path: '/company',
     name: 'company',
-    component: CompanyView,
+    component: IndexView,
+    children: [
+      {
+        path: '',
+        component: CompanyView,
+      }
+    ],
   },
   {
     path: '/recruit',
     name: 'recruit',
-    component: RecruitView,
+    component: IndexView,
+    children: [
+      {
+        path: '',
+        component: RecruitView,
+      }
+    ],
   },
   {
     path: '/travel',
