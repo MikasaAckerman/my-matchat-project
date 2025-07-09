@@ -23,8 +23,11 @@ export default {
   data() {
     return {
       newsList: [
-          { id: 3, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年7月', title: 'ENEOSプロジェクトに参画しておりました'},
-          { id: 2, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年6月', title: 'Accentureとのプロジェクトに参画しておりました'},
+          { id: 6, imageUrl: require('@/assets/smbc.png'), date: '2025年5月', title: '三井プロジェクトに参画しておりました'},
+          { id: 5, imageUrl: require('@/assets/keyence.png'), date: '2025年4月', title: 'Keyenceプロジェクトに参画しておりました'},
+          { id: 4, imageUrl: require('@/assets/comotto.png'), date: '2025年1月', title: 'Docomoプロジェクトに参画しておりました'},
+          { id: 3, imageUrl: require('@/assets/eneos.png'), date: '2024年7月', title: 'ENEOSプロジェクトに参画しておりました'},
+          { id: 2, imageUrl: require('@/assets/accenture.png'), date: '2024年6月', title: 'Accentureとのプロジェクトに参画しておりました'},
           { id: 1, imageUrl: require('@/assets/matchat_white_bg.png'), date: '2024年4月', title: '東京でマッチャット株式会社設立'},
       ],
     };
