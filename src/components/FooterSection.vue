@@ -5,7 +5,7 @@
       <div class="footer-content">
         <div class="footer-left">
           <h2>MatChat株式会社</h2>
-          <p class="copyright">&copy; {{ new Date().getFullYear() }} MatChat Inc. All rights reserved.</p>
+          <p class="copyright">&copy; {{ new Date().getFullYear() }} MatChat K.K. All rights reserved.</p>
         </div>
         <div class="footer-right">
           <h2>お問い合わせ</h2>

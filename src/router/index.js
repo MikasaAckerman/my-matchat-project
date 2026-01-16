@@ -31,6 +31,7 @@ import HomeView from '@/views/HomeView.vue';
 import CompanyView from '@/views/CompanyView.vue';
 import RecruitView from '@/views/RecruitView.vue';
 import TravelView from '@/views/TravelView.vue';
+import PrivacyView from '@/views/PrivacyView.vue';
 
 import IndexView from '@/views/IndexView.vue';
 
@@ -75,6 +76,11 @@ const routes = [
     path: '/travel',
     name: 'travel',
     component: TravelView,
+  },
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: PrivacyView,
   },
 ];
 
