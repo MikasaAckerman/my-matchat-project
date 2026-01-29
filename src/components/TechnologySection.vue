@@ -39,6 +39,30 @@
           </a>
        </div>
       </div>
+
+      <div class="app-container">
+       <div class="app-image">
+        <img src="@/assets/Genki.png" alt="Genki App">
+       </div>
+       <div class="app-image">
+        <img src="@/assets/Genki2.png" alt="Genki App">
+       </div>
+       <div class="app-description app-description-genki">
+        <h3>自社開発「元気？」アプリ</h3>
+        <p align="left">本アプリは、一般的な「チェックインアプリ」ではなく、高齢者向けの安否確認・見守り支援を目的としたアプリです。
+          <br><br>近年、日本およびアジア地域では高齢化が進み、独居高齢者の増加や孤独死が社会課題となっています。本アプリは、そのような背景を踏まえ、ご家族や地域コミュニティによる見守りを支援する目的で設計されています。
+          <br><br>本アプリでは、高齢者ご本人が毎日ワンタップで安否確認を行うことができ、一定期間操作が確認できなかった場合にのみ、事前に設定されたご家族のメールアドレスへ自動通知が送信されます。
+          <br><br>操作を極力シンプルにし、スマートフォン操作に不慣れな高齢者でも利用できることを重視しています。また、本アプリは日本国内の高齢者コミュニティでの利用・普及を想定しており、特定の社会的課題に対応する目的特化型アプリです。</p>
+          <div class="store-badges">
+           <a href="https://apps.apple.com/us/app/%E5%85%83%E6%B0%97/id6758091627" target="_blank">
+            <img src="@/assets/APPSTORE_DL.png" alt="App Store" class="store-badge">
+           </a>
+           <a href="https://play.google.com/store/apps/details?id=jp.co.matchat.genki" target="_blank">
+            <img src="@/assets/GooglePlay_DL.webp" alt="Google Play" class="store-badge">
+           </a>
+          </div>
+       </div>
+      </div>
     </section>
 </template>
   
@@ -198,6 +222,10 @@
   min-height: 400px; /* 保证最小高度，但允许内容增多时扩展 */
 }
 
+.app-description-genki {
+  padding-bottom: 150px;
+}
+
 .app-description h3 {
   margin-top: 0;
   color: #299882;
@@ -222,6 +250,25 @@
   scroll-snap-align: start; /* 滚动捕捉对齐 */
 }
 
+.store-badges {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.store-badge {
+  width: 200px;
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.store-badge:hover {
+  filter: brightness(0.8);
+}
+
 @media (max-width: 1368px) {
   .app-container {
     padding-left: 10px; /* 如果需要的话，减少或移除内边距 */
@@ -243,6 +290,20 @@
     width: 100px; /* 在小屏幕上调整装饰性图片的大小 */
     bottom: 5px;
     right: 5px;
+  }
+
+  .app-description-genki {
+    padding-bottom: 120px;
+  }
+
+  .store-badges {
+    bottom: 5px;
+    right: 5px;
+    gap: 6px;
+  }
+
+  .store-badge {
+    width: 100px;
   }
 }
 </style>
