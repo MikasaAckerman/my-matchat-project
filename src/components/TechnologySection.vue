@@ -63,6 +63,38 @@
           </div>
        </div>
       </div>
+
+      <div class="app-container app-container-charades">
+       <div class="app-gallery-charades">
+        <div class="app-image app-image-charades">
+         <img src="@/assets/CharadessMain.png" alt="Charadess App">
+        </div>
+        <div class="app-image app-image-charades">
+         <img src="@/assets/CharadessSide.png" alt="Charadess App">
+        </div>
+        <div class="app-image app-image-charades">
+         <img src="@/assets/CharadessExtra1.png" alt="Charadess App">
+        </div>
+        <div class="app-image app-image-charades">
+         <img src="@/assets/CharadessExtra2.png" alt="Charadess App">
+        </div>
+       </div>
+       <div class="app-description app-description-charades">
+        <h3>自社開発「Charadess!」アプリ</h3>
+        <p align="left">「Charadess!」は、友人や家族と一緒に楽しめるシンプルなパーティー向けジェスチャーゲームです。
+          <br><br>プレイヤーはスマートフォンを額の前で横向きに構え、周囲のメンバーがジェスチャーや説明でお題を伝えます。端末を上に傾けるとスキップ、下に傾けると正解として判定できる直感的な操作を採用しています。
+          <br><br>動物、映画キャラクター、歴史上の人物、食べ物など複数のカテゴリを収録しており、オリジナルの単語リストを作成することも可能です。
+          <br><br>ホームパーティーや家族の集まりなど、人が集まる場を盛り上げるカジュアルゲームとして展開しています。</p>
+          <div class="store-badges">
+           <a href="https://apps.apple.com/us/app/charadess/id6759971097" target="_blank">
+            <img src="@/assets/APPSTORE_DL.png" alt="App Store" class="store-badge">
+           </a>
+           <a href="https://play.google.com/store/apps/details?id=jp.co.matchat.charades" target="_blank">
+            <img src="@/assets/GooglePlay_DL.webp" alt="Google Play" class="store-badge">
+           </a>
+          </div>
+       </div>
+      </div>
     </section>
 </template>
   
@@ -226,6 +258,52 @@
   padding-bottom: 150px;
 }
 
+.app-description-charades {
+  min-height: 340px;
+  padding-bottom: 150px;
+}
+
+.app-container-charades {
+  align-items: center;
+  min-height: 620px;
+}
+
+.app-gallery-charades {
+  width: 640px;
+  min-width: 640px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  scroll-snap-align: start;
+}
+
+.app-image-charades {
+  width: 300px;
+  min-width: 300px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-image-charades img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.app-description-charades .store-badges {
+  bottom: 12px;
+  right: 12px;
+  gap: 8px;
+}
+
+.app-description-charades .store-badge {
+  width: 160px;
+}
+
 .app-description h3 {
   margin-top: 0;
   color: #299882;
@@ -294,6 +372,41 @@
 
   .app-description-genki {
     padding-bottom: 120px;
+  }
+
+  .app-description-charades {
+    min-height: 300px;
+    padding-bottom: 120px;
+  }
+
+  .app-container-charades {
+    min-height: 520px;
+  }
+
+  .app-gallery-charades {
+    width: 300px;
+    min-width: 300px;
+    gap: 10px;
+  }
+
+  .app-image-charades {
+    width: 145px;
+    min-width: 145px;
+    height: 140px;
+  }
+
+  .app-image-charades img {
+    max-height: 140px;
+  }
+
+  .app-description-charades .store-badges {
+    bottom: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .app-description-charades .store-badge {
+    width: 90px;
   }
 
   .store-badges {
