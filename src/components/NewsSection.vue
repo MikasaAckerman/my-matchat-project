@@ -99,18 +99,24 @@ export default {
 }
 
 .read-more-btn {
-  align-self: flex-end; /* 按钮在容器内右对齐 */
-  background-color: #80B966; /* 示例按钮颜色 */
-  color: white;
+  align-self: flex-end;
+  width: 200px;
   border: none;
-  padding: 10px 20px;
-  /* cursor: pointer; */
-  border-radius: 8px;
-  transition: background-color 0.3s ease; /* 平滑过渡背景颜色变化 */
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #cfe1bf 0%, #adc894 100%);
+  color: #3f5f35;
+  font-family: "Avenir Next", "Helvetica Neue", "Noto Sans JP", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 8px 20px rgba(122, 160, 95, 0.18);
+  transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .read-more-btn:hover {
-  background-color: #305158; /* 鼠标悬停时的背景颜色 */
+  filter: brightness(0.98);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(122, 160, 95, 0.24);
 }
 </style>
-

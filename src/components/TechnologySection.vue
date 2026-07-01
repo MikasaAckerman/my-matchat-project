@@ -24,10 +24,10 @@
 
       <div class="app-container">
        <div class="app-image">
-        <img src="@/assets/deviceframes-5.png" alt="App Image">
+        <img src="@/assets/deviceframes-5.png" alt="App Image" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'MatChat App')">
        </div>
        <div class="app-image">
-        <img src="@/assets/deviceframes-3.png" alt="App Image">
+        <img src="@/assets/deviceframes-3.png" alt="App Image" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'MatChat App')">
        </div>
        <div class="app-description">
         <h3>自社開発MatChatアプリ</h3>
@@ -42,10 +42,10 @@
 
       <div class="app-container">
        <div class="app-image">
-        <img src="@/assets/Genki.png" alt="Genki App">
+        <img src="@/assets/Genki.png" alt="Genki App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Genki App')">
        </div>
        <div class="app-image">
-        <img src="@/assets/Genki2.png" alt="Genki App">
+        <img src="@/assets/Genki2.png" alt="Genki App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Genki App')">
        </div>
        <div class="app-description app-description-genki">
         <h3>自社開発「元気？」アプリ</h3>
@@ -65,35 +65,61 @@
       </div>
 
       <div class="app-container app-container-charades">
-       <div class="app-gallery-charades">
-        <div class="app-image app-image-charades">
-         <img src="@/assets/CharadessMain.png" alt="Charadess App">
+       <div class="app-track-charades">
+        <div class="app-gallery-charades">
+         <div class="app-image app-image-charades">
+          <img src="@/assets/CharadessMain.png" alt="Charadess App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Charadess App')">
+         </div>
+         <div class="app-image app-image-charades">
+          <img src="@/assets/CharadessSide.png" alt="Charadess App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Charadess App')">
+         </div>
+         <div class="app-image app-image-charades">
+          <img src="@/assets/CharadessExtra1.png" alt="Charadess App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Charadess App')">
+         </div>
+         <div class="app-image app-image-charades">
+          <img src="@/assets/CharadessExtra2.png" alt="Charadess App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'Charadess App')">
+         </div>
         </div>
-        <div class="app-image app-image-charades">
-         <img src="@/assets/CharadessSide.png" alt="Charadess App">
-        </div>
-        <div class="app-image app-image-charades">
-         <img src="@/assets/CharadessExtra1.png" alt="Charadess App">
-        </div>
-        <div class="app-image app-image-charades">
-         <img src="@/assets/CharadessExtra2.png" alt="Charadess App">
+        <div class="charades-panel">
+         <h3>自社開発「Charadess!」アプリ</h3>
+         <p align="left">「Charadess!」は、友人や家族と一緒に楽しめるシンプルなパーティー向けジェスチャーゲームです。
+           <br><br>プレイヤーはスマートフォンを額の前で横向きに構え、周囲のメンバーがジェスチャーや説明でお題を伝えます。端末を上に傾けるとスキップ、下に傾けると正解として判定できる直感的な操作を採用しています。
+           <br><br>動物、映画キャラクター、歴史上の人物、食べ物など複数のカテゴリを収録しており、オリジナルの単語リストを作成することも可能です。
+           <br><br>ホームパーティーや家族の集まりなど、人が集まる場を盛り上げるカジュアルゲームとして展開しています。</p>
+           <div class="store-badges charades-store-badges">
+            <a href="https://apps.apple.com/us/app/charadess/id6759971097" target="_blank">
+             <img src="@/assets/APPSTORE_DL.png" alt="App Store" class="store-badge">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=jp.co.matchat.charades" target="_blank">
+             <img src="@/assets/GooglePlay_DL.webp" alt="Google Play" class="store-badge">
+            </a>
+           </div>
         </div>
        </div>
-       <div class="app-description app-description-charades">
-        <h3>自社開発「Charadess!」アプリ</h3>
-        <p align="left">「Charadess!」は、友人や家族と一緒に楽しめるシンプルなパーティー向けジェスチャーゲームです。
-          <br><br>プレイヤーはスマートフォンを額の前で横向きに構え、周囲のメンバーがジェスチャーや説明でお題を伝えます。端末を上に傾けるとスキップ、下に傾けると正解として判定できる直感的な操作を採用しています。
-          <br><br>動物、映画キャラクター、歴史上の人物、食べ物など複数のカテゴリを収録しており、オリジナルの単語リストを作成することも可能です。
-          <br><br>ホームパーティーや家族の集まりなど、人が集まる場を盛り上げるカジュアルゲームとして展開しています。</p>
+      </div>
+
+      <div class="app-container app-container-makishot">
+       <div class="app-gallery-makishot">
+        <div class="app-image app-image-makishot">
+         <img src="@/assets/MakiShot.png" alt="MakiShot App" class="previewable-image" @click="openPreview($event.target.currentSrc || $event.target.src, 'MakiShot App')">
+        </div>
+       </div>
+       <div class="app-description app-description-makishot">
+        <h3>自社開発・運営の MakiShotアプリおよびオンラインサービス</h3>
+        <p align="left">Maki Shot は、写真撮影に関する予約プラットフォームです。
+          <br><br>利用者は、撮影者、モデル、撮影スタジオ等のサービス提供者を検索し、撮影内容・日時・料金を確認したうえで予約・決済を行うことができます。
+          <br><br>当社は、予約管理、オンライン決済、キャンセル・返金対応、安全管理機能を提供し、注文金額に対してサービス手数料を受け取ります。</p>
           <div class="store-badges">
-           <a href="https://apps.apple.com/us/app/charadess/id6759971097" target="_blank">
-            <img src="@/assets/APPSTORE_DL.png" alt="App Store" class="store-badge">
-           </a>
-           <a href="https://play.google.com/store/apps/details?id=jp.co.matchat.charades" target="_blank">
-            <img src="@/assets/GooglePlay_DL.webp" alt="Google Play" class="store-badge">
+           <a href="https://www.makishot.com/#home" target="_blank" class="makishot-link">
+            MakiShotへ
            </a>
           </div>
        </div>
+      </div>
+
+      <div v-if="previewImage" class="image-preview-overlay" @click.self="closePreview">
+       <button type="button" class="image-preview-close" @click="closePreview">×</button>
+       <img :src="previewImage" :alt="previewAlt" class="image-preview-content">
       </div>
     </section>
 </template>
@@ -103,6 +129,8 @@
     name: 'TechnologySection',
     data() {
       return {
+        previewAlt: '',
+        previewImage: '',
         technologyItems_language: [
           { id: 1, title: 'Swift', image: require('@/assets/Language/Swift.svg') },
           { id: 1, title: 'Objective-C', image: require('@/assets/Language/Objective-C.png') },
@@ -136,6 +164,16 @@
         ],
       };
     },
+    methods: {
+      closePreview() {
+        this.previewAlt = '';
+        this.previewImage = '';
+      },
+      openPreview(src, alt) {
+        this.previewAlt = alt;
+        this.previewImage = src;
+      },
+    },
   };
   </script>
   
@@ -143,7 +181,7 @@
 
   
 .section-technology {
-  /* 为整个技术部分设置样式（如有需要） */
+  overflow-x: hidden;
 }
 
 .container {
@@ -258,55 +296,125 @@
   padding-bottom: 150px;
 }
 
-.app-description-charades {
-  min-height: 340px;
-  padding-bottom: 150px;
+.app-description-makishot {
+  min-height: 290px;
+  padding-bottom: 100px;
+}
+
+.app-container-makishot {
+  justify-content: flex-start;
+  min-height: 520px;
+}
+
+.app-gallery-makishot {
+  width: 620px;
+  min-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.app-image-makishot {
+  width: 620px;
+  min-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-image-makishot img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 .app-container-charades {
+  display: block;
+  width: auto;
+  min-height: 500px;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+.app-track-charades {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 620px minmax(0, 1fr);
   align-items: center;
-  min-height: 620px;
+  gap: 20px;
 }
 
 .app-gallery-charades {
-  width: 640px;
-  min-width: 640px;
+  width: 620px;
+  min-width: 620px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   align-items: center;
   justify-items: center;
   scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
 .app-image-charades {
   width: 300px;
   min-width: 300px;
-  height: 250px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .app-image-charades img {
-  max-width: 100%;
-  max-height: 250px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
 }
 
-.app-description-charades .store-badges {
+.charades-panel {
+  background-color: #ced9dc;
+  border-radius: 15px;
+  padding: 20px 20px 90px;
+  position: relative;
+  min-height: 320px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.charades-panel h3 {
+  margin-top: 0;
+  color: #299882;
+}
+
+.charades-store-badges {
   bottom: 12px;
   right: 12px;
   gap: 8px;
 }
 
-.app-description-charades .store-badge {
+.charades-store-badges .store-badge {
   width: 160px;
 }
 
 .app-description h3 {
   margin-top: 0;
   color: #299882;
+}
+
+.previewable-image {
+  cursor: zoom-in;
 }
 
 .decorative-image {
@@ -347,6 +455,63 @@
   filter: brightness(0.8);
 }
 
+.makishot-link {
+  width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #cfe1bf 0%, #adc894 100%);
+  color: #3f5f35;
+  font-family: "Avenir Next", "Helvetica Neue", "Noto Sans JP", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(122, 160, 95, 0.18);
+  transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.makishot-link:hover {
+  filter: brightness(0.98);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(122, 160, 95, 0.24);
+}
+
+.image-preview-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 26, 18, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1200;
+}
+
+.image-preview-content {
+  max-width: min(92vw, 1280px);
+  max-height: 88vh;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.image-preview-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 @media (max-width: 1368px) {
   .app-container {
     padding-left: 10px; /* 如果需要的话，减少或移除内边距 */
@@ -374,38 +539,41 @@
     padding-bottom: 120px;
   }
 
-  .app-description-charades {
-    min-height: 300px;
-    padding-bottom: 120px;
+  .app-track-charades {
+    min-width: 1120px;
+    width: max-content;
+    max-width: none;
+    grid-template-columns: 620px minmax(500px, 1fr);
+  }
+
+  .charades-panel {
+    min-height: 320px;
+    width: 500px;
+    max-width: 500px;
+    min-width: 500px;
+    padding: 10px 10px 90px;
+  }
+
+  .app-description-makishot {
+    min-height: 250px;
+    padding-bottom: 85px;
+  }
+
+  .app-container-makishot {
+    min-height: 440px;
   }
 
   .app-container-charades {
-    min-height: 520px;
+    min-height: 500px;
   }
 
-  .app-gallery-charades {
-    width: 300px;
-    min-width: 300px;
-    gap: 10px;
-  }
-
-  .app-image-charades {
-    width: 145px;
-    min-width: 145px;
-    height: 140px;
-  }
-
-  .app-image-charades img {
-    max-height: 140px;
-  }
-
-  .app-description-charades .store-badges {
+  .charades-store-badges {
     bottom: 8px;
     right: 8px;
     gap: 6px;
   }
 
-  .app-description-charades .store-badge {
+  .charades-store-badges .store-badge {
     width: 90px;
   }
 
@@ -417,6 +585,22 @@
 
   .store-badge {
     width: 100px;
+  }
+
+  .makishot-link {
+    width: 100px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .image-preview-overlay {
+    padding: 12px;
+  }
+
+  .image-preview-close {
+    top: 12px;
+    right: 12px;
   }
 }
 </style>
