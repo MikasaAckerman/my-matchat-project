@@ -489,6 +489,17 @@
   transition: filter 0.3s ease;
 }
 
+/* App Store のバッジ画像は周囲に透明な余白があり（内容は幅87%程度）、
+   同じ width だと小さく見える。ただし2つのバッジは可視部分のアスペクト比が
+   異なり幅・高さを同時に揃えられないため、可視面積が近くなる約8%拡大で妥協する。 */
+.store-badge[alt="App Store"] {
+  width: 216px;
+}
+
+.charades-store-badges .store-badge[alt="App Store"] {
+  width: 173px;
+}
+
 .store-badge:hover {
   filter: brightness(0.8);
 }
@@ -623,6 +634,14 @@
 
   .store-badge {
     width: 100px;
+  }
+
+  .store-badge[alt="App Store"] {
+    width: 108px;
+  }
+
+  .charades-store-badges .store-badge[alt="App Store"] {
+    width: 97px;
   }
 
   .makishot-link {
