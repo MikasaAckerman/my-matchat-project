@@ -1,7 +1,10 @@
 <template>
     <section id="technology" class="section-technology">
       <div class="container">
-        <h2>テクノロジー</h2>
+        <div class="reveal">
+          <span class="section-kicker">Technology</span>
+          <h2 class="section-heading">テクノロジー</h2>
+        </div>
         <div class="technology-grid">
           <div class="technology-item" v-for="item in technologyItems_language" :key="item.id">
             <img :src="item.image" :alt="item.title">
@@ -182,6 +185,8 @@
   
 .section-technology {
   overflow-x: hidden;
+  padding-top: 3.5rem;
+  background-color: #f6f9f6;
 }
 
 .container {
@@ -210,15 +215,34 @@
 
 .technology-item {
   height: auto;
-  padding-top: 0; /* 顶部填充与宽度相同，形成正方形 */
-  position: relative; 
+  padding: 12px 6px 6px; /* 卡片内边距 */
+  position: relative;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(48, 81, 88, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(48, 81, 88, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.technology-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(79, 216, 196, 0.5);
+  box-shadow: 0 10px 24px rgba(48, 81, 88, 0.12), 0 0 16px rgba(79, 216, 196, 0.15);
+}
+
+.technology-item h3 {
+  font-size: 0.9rem;
+  margin: 8px 0 6px;
+  color: #305158;
 }
 
 .technology-item img {
   position: relative;
   top: 0;
   left: 0;
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
   height: 100px;
   object-fit: scale-down; /* 确保图片填充整个容器且不变形 */
   object-position: center;
@@ -240,7 +264,8 @@
     position: relative; /* 或其他布局调整 */
     top: 0;
     left: 0;
-    width: 100px;
+    width: 100%;
+    max-width: 100px;
     height: 100px;
     object-fit: scale-down; /* 确保图片填充整个容器且不变形 */
     object-position: center;
@@ -258,6 +283,7 @@
 .app-container {
   padding-left: 50px;
   padding-right: 50px;
+  margin-top: 56px; /* 各アプリ紹介ブロック間・テクノロジーグリッドとの余白 */
   display: flex;
   flex-direction: row; /* 确保水平布局 */
   align-items: center;
@@ -281,7 +307,9 @@
 }
 
 .app-description {
-  background-color: #ced9dc; /* 半透明白色背景 */
+  background: linear-gradient(160deg, #ffffff 0%, #eef6ef 100%); /* 明るいパネル背景 */
+  border: 1px solid rgba(48, 81, 88, 0.1);
+  box-shadow: 0 12px 32px rgba(48, 81, 88, 0.1);
   border-radius: 15px; /* 圆角 */
   padding-top: 20px; /* 为图片留出空间 */
   padding-left: 20px; /* 为图片留出空间 */
@@ -302,7 +330,7 @@
 }
 
 .app-container-makishot {
-  justify-content: flex-start;
+  justify-content: center;
   min-height: 520px;
 }
 
@@ -343,7 +371,8 @@
 .app-track-charades {
   min-width: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 620px minmax(0, 1fr);
   align-items: center;
@@ -381,7 +410,9 @@
 }
 
 .charades-panel {
-  background-color: #ced9dc;
+  background: linear-gradient(160deg, #ffffff 0%, #eef6ef 100%);
+  border: 1px solid rgba(48, 81, 88, 0.1);
+  box-shadow: 0 12px 32px rgba(48, 81, 88, 0.1);
   border-radius: 15px;
   padding: 20px 20px 90px;
   position: relative;
@@ -411,6 +442,13 @@
 .app-description h3 {
   margin-top: 0;
   color: #299882;
+  letter-spacing: 0.04em;
+}
+
+.app-description p,
+.charades-panel p {
+  line-height: 1.9;
+  color: #3a4a47;
 }
 
 .previewable-image {

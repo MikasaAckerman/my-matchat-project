@@ -1,53 +1,106 @@
 <template>
     <section class="hero" ref="heroSection">
-      <img ref="heroImage" src="../assets/hero-bg.jpg" alt="Hero Image" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;">
-      <div class="hero-content" style="z-index: 2;">
-        <div class="text-background">
-          <h1>MatChat</h1>
-        </div>
-        <!-- <div class="text-background">
-          <p></p>
-        </div> -->
-        <!-- <button class="cta-button">Contact Us</button> -->
+      <img ref="heroImage" src="../assets/hero-bg.jpg" alt="Hero Image" class="hero-bg-image">
+      <div class="hero-scrim"></div>
+      <canvas ref="particleCanvas" class="hero-particles"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-title">MatChat</h1>
       </div>
       <span class="hero-bg-text">へようこそ</span>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-indicator-line"></span>
+        SCROLL
+      </div>
     </section>
   </template>
-  
+
   <script>
   export default {
     name: 'HeroSection',
     methods: {
     handleScroll() {
       const offset = window.scrollY; // 获取页面垂直滚动的距离
-      // this.$el.style.backgroundPositionY = `${-offset * 0.5}px`; // 调整背景图片的垂直位置
       this.$refs.heroImage.style.top = `${-offset * 0.2}px`;
+    },
+    // 粒子ネットワークの描画（テック感の演出）
+    initParticles() {
+      const canvas = this.$refs.particleCanvas;
+      const ctx = canvas.getContext('2d');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      const resize = () => {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      };
+      resize();
+      this.onParticleResize = resize;
+      window.addEventListener('resize', resize);
+
+      const count = Math.min(70, Math.floor(canvas.width / 22));
+      const particles = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.6 + 0.6,
+      }));
+
+      const LINK_DIST = 130;
+
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(143, 208, 109, 0.55)';
+          ctx.fill();
+        });
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < LINK_DIST) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(79, 216, 196, ${(1 - dist / LINK_DIST) * 0.35})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        this.particleFrameId = requestAnimationFrame(draw);
+      };
+
+      if (reduceMotion) {
+        draw();
+        cancelAnimationFrame(this.particleFrameId);
+      } else {
+        draw();
+      }
     }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
-   
-    if (isIOS()) {
-      // const heroSection = this.$refs.heroSection; // 确保在模板中添加 ref="heroSection" 到 .hero div
-      // const iosBackground = require('@/assets/hero-bg-iOS.jpg');
-      // heroSection.style.backgroundImage = `url(${iosBackground})`;
-    }
+    this.initParticles();
   },
   beforeUnmount() { // Vue 3 的生命周期钩子，用于清理
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.onParticleResize);
+    cancelAnimationFrame(this.particleFrameId);
   }
   };
-
-  function isIOS() {
-    const userAgent = window.navigator.userAgent;
-    return /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
- }
-
   </script>
-  
 
-  
   <style scoped>
 
   .hero {
@@ -59,103 +112,97 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-image: url('@/assets/logo.png'); */
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
     background-color: #fafbf5;
     position: relative;
     overflow: hidden;
-
-    -webkit-background-size: 100%; 
-    -moz-background-size: 100%; 
-    -o-background-size: 100%; 
-    background-size: 100%; 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
-    background-size: cover; 
-
   }
 
-  .hero img {
+  .hero-bg-image {
     position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: top 0.2s ease-out;  
-}
-
-  /* body {
-    background: url('@/assets/hero-bg.jpg') no-repeat center center fixed; 
-    -webkit-background-size: 100%; 
-    -moz-background-size: 100%; 
-    -o-background-size: 100%; 
-    background-size: 100%; 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
-    background-size: cover; 
-    }
-
-    html { 
-  background: url('@/assets/hero-bg.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-   */
-  .hero-content {
-    text-align: center;
-    color: #73a85a; 
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: top 0.2s ease-out;
   }
 
-  .text-background {
-    background-color: rgba(251, 252, 243, 0.0); 
-    border-radius: 40px; 
-    padding: 0px; 
-    display: block;
-    margin: 5px 0; 
+  /* 画像の上に薄いスクリムを重ねて文字の可読性を上げる */
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(14, 34, 41, 0.35) 0%, rgba(14, 34, 41, 0.05) 40%, rgba(14, 34, 41, 0.45) 100%);
+    pointer-events: none;
+  }
+
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 13vw, 12rem);
+    line-height: 1.05;
+    margin: 10px 0;
+    background: linear-gradient(120deg, #a5e284 0%, #73a85a 45%, #4fd8c4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 6px 24px rgba(14, 34, 41, 0.35));
   }
 
   .hero-bg-text {
-  position: absolute;
-  bottom: 1rem; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  color: #73a85a; 
-  padding: 10px; 
-  font-size: 2rem; 
-}
+    position: absolute;
+    bottom: 4.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    color: #eafff2;
+    padding: 10px;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    text-shadow: 0 2px 12px rgba(14, 34, 41, 0.6);
+  }
 
-  h1 {
-    font-size: 13vw;
-    margin: 15px;
-    /* margin-bottom: 1rem; */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    color: rgba(234, 255, 242, 0.85);
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
   }
-  
-  p {
-    font-size: 1.5rem;
-    /* margin-bottom: 2rem; */
+
+  .scroll-indicator-line {
+    display: block;
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(180deg, rgba(234, 255, 242, 0), rgba(143, 208, 109, 0.9));
+    animation: scroll-pulse 2s ease-in-out infinite;
   }
-  
-  .cta-button {
-    padding: 1rem 2rem;
-    background-color: #80B966; /* Match this to your brand color */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 8vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #81c784; /* Slightly darker on hover */
-    }
+
+  @keyframes scroll-pulse {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(1) translateY(10px); opacity: 0; }
   }
   </style>
-  

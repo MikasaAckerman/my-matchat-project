@@ -32,10 +32,13 @@ export default {
 
       this.injectEmbedStyles(doc);
 
-      const height = Math.max(
-        doc.body.scrollHeight,
-        doc.documentElement ? doc.documentElement.scrollHeight : 0
-      );
+      // position:fixed の .loader が documentElement.scrollHeight を実コンテンツより
+      // 大きく膨らませ、事業内容の上に大きな余白を生む。実コンテンツ（main）の
+      // 高さ、なければ body.scrollHeight を基準にする。
+      const main = doc.querySelector('main');
+      const height = main
+        ? main.offsetTop + main.offsetHeight
+        : doc.body.scrollHeight;
 
       iframe.style.height = `${height}px`;
     },
@@ -47,7 +50,6 @@ export default {
       style.textContent = `
         .anker { padding-top: 0 !important; margin-top: 0 !important; }
         .pagetop { display: none !important; }
-        .index01 { padding-bottom: 40rem !important; }
         .container_100 { padding-bottom: 0 !important; }
       `;
       doc.head.appendChild(style);
@@ -59,6 +61,10 @@ export default {
 <style scoped>
 .travel-embed {
   width: 100%;
+  /* travel コンテンツ（ABOUT US は白背景）と「事業内容」セクションの間の余白。
+     上の ABOUT US と同じ白にして色の段差をなくす。 */
+  padding-bottom: 44px;
+  background-color: #ffffff;
 }
 
 .travel-iframe {

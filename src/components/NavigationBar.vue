@@ -114,7 +114,6 @@ export default {
 <style scoped>
 .navbar {
   width: 100%;
-  background-color: background-color 0.3s ease; /* Set background to transparent */
   color: #305158;
   position: fixed; /* Make navbar fixed at the top */
   top: 0;
@@ -122,6 +121,10 @@ export default {
   z-index: 1000; /* Ensure navbar is above other content */
   padding: 0.1rem 0.4%; /* Adjust padding and ensure it's responsive */
   box-sizing: border-box;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(143, 208, 109, 0.18);
+  transition: background-color 0.3s ease;
 }
 
 .hamburger {
@@ -172,14 +175,34 @@ export default {
 }
 
 .navbar-links span {
+  position: relative;
+  padding-bottom: 4px;
   color: #fff; /* Set text color */
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer; /* 确保文本可点击时显示手形光标 */
 }
 
+.navbar-links span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(120deg, #8fd06d, #4fd8c4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
 .navbar-links span:hover {
-  color: #81c784; /* Color on hover */
+  color: #8fd06d; /* Color on hover */
+}
+
+.navbar-links span:hover::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 768px) {

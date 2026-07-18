@@ -1,14 +1,17 @@
 <template>
     <section id="services" class="section-services">
 
-      <h2>事業内容</h2>
+      <div class="reveal">
+        <span class="section-kicker">Services</span>
+        <h2 class="section-heading section-heading-light">事業内容</h2>
+      </div>
 
       <div class="services-container">
         
       
         <div class="services-grid">
 
-          <div class="service-card-container" v-for="service in services" :key="service.id">
+          <div class="service-card-container reveal" v-for="service in services" :key="service.id">
 
             <div class="service-icon">
               <img :src=service.path alt="">
@@ -46,7 +49,34 @@
   
   <style scoped>
   .section-services {
-    padding: 2rem 0;
+    position: relative;
+    padding: 4rem 0 3rem;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(79, 216, 196, 0.12), transparent),
+      radial-gradient(ellipse 70% 50% at 90% 100%, rgba(143, 208, 109, 0.1), transparent),
+      linear-gradient(160deg, #0e2229 0%, #16333c 55%, #1d3f45 100%);
+    color: #dce8e3;
+    overflow: hidden;
+  }
+
+  /* 背景にうっすらとしたグリッド線を敷いてテック感を出す */
+  .section-services::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(143, 208, 109, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143, 208, 109, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+  }
+
+  .section-services > * {
+    position: relative;
+  }
+
+  .section-heading-light {
+    color: #f2fbf1;
   }
   .services-grid {
     display: flex;
@@ -57,12 +87,15 @@
   }
 
   .service-card {
-    background-color: #ced9dc; /* 卡片背景色 */
+    background: rgba(255, 255, 255, 0.06); /* 卡片背景色 */
+    border: 1px solid rgba(143, 208, 109, 0.22);
     border-radius: 15px; /* 卡片圆角 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 卡片阴影 */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25); /* 卡片阴影 */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     overflow: hidden; /* 确保所有子元素都被包含在圆角内 */
     margin: 0.5rem; /* 卡片间距 */
-    transition: transform 0.3s; /* 鼠标悬停时的变换效果 */
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; /* 鼠标悬停时的变换效果 */
     max-width: 20rem;
     position: relative;
     flex-grow: 1;
@@ -72,13 +105,23 @@
   padding: 20px; /* 内边距 */
 }
 
-.service-card::before {
-
+.service-card-content h3 {
+  color: #a5e284;
+  letter-spacing: 0.06em;
 }
 
-/* 鼠标悬停时卡片上浮效果 */
+.service-card-content p {
+  color: #d3e2dc;
+  line-height: 1.9;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* 鼠标悬停时卡片上浮 + 发光效果 */
 .service-card:hover {
   transform: translateY(-10px);
+  border-color: rgba(79, 216, 196, 0.65);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35), 0 0 24px rgba(79, 216, 196, 0.18);
 }
 
 .services-container {
@@ -116,12 +159,12 @@
   transform: translate(-50%, -50%); /* 完全居中，并拉上一半在容器外部 */
   width: 60px; /* 图标的宽度 */
   height: 60px; /* 图标的高度 */
-  background-color: #80B966; /* 图标的背景颜色 */
+  background: linear-gradient(135deg, #80B966 0%, #4fd8c4 100%); /* 图标的背景颜色 */
   border-radius: 50%; /* 圆形图标 */
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.25); /* 可选：为图标添加阴影 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 0 18px rgba(79, 216, 196, 0.45); /* 光晕效果 */
   z-index: 2;
 }
 

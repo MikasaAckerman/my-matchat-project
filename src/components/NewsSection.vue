@@ -1,9 +1,12 @@
 <template>
   <section id="news" class="news-section">
     <div class="container">
-      <h2 class="news-title">NEWS</h2>
+      <div class="reveal">
+        <span class="section-kicker">News</span>
+        <h2 class="section-heading news-title">ニュース</h2>
+      </div>
       <div class="news-items">
-        <div class="news-item" v-for="news in newsList" :key="news.id">
+        <div class="news-item reveal" v-for="news in newsList" :key="news.id">
           <div class="news-image">
             <img :src="news.imageUrl" alt="News Image" />
           </div>
@@ -38,7 +41,8 @@ export default {
 <style scoped>
 .news-section {
   text-align: center; /* 标题和按钮居中 */
-  padding-bottom: 20px;
+  padding: 3rem 0 40px;
+  background-color: #f6f9f6;
 }
 
 .container {
@@ -63,16 +67,28 @@ export default {
 .news-item {
   display: flex;
   align-items: top; /* 图片和内容垂直居中 */
-  margin-bottom: 10px;
-  /* background-color: #f9f9f9; 示例背景色 */
-  /* border: 1px solid #ddd; 示例边框 */
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid rgba(48, 81, 88, 0.08);
+  border-left: 3px solid #8fd06d;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(48, 81, 88, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.news-item:hover {
+  transform: translateX(6px);
+  border-left-color: #4fd8c4;
+  box-shadow: 0 8px 20px rgba(48, 81, 88, 0.12);
 }
 
 .news-image img {
   width: 100px; /* 根据实际情况调整 */
   height: 100px; /* 根据实际情况调整 */
   object-fit: cover; /* 确保图片覆盖整个区域 */
-  border: 1px solid #ccc; 
+  border: 1px solid rgba(48, 81, 88, 0.1);
+  border-radius: 8px;
 }
 
 .news-content {
@@ -82,20 +98,22 @@ export default {
 }
 
 .p1, .p2 {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   margin: 5px;
   padding-left: 5px;
 }
 
 
 .p1 {
-  color: #333;
+  color: #6b8a80;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .p2 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding-top: 5px;
-  color: #000;
+  color: #22333a;
 }
 
 .read-more-btn {

@@ -66,7 +66,7 @@ export default {
 
         ctx.lineTo(canvas.width, 0); // 修改终点为画布顶部
         ctx.lineTo(0, 0); // 完成闭合路径
-        ctx.fillStyle = '#fff'; // 波浪颜色
+        ctx.fillStyle = '#f6f9f6'; // 波浪颜色（上方セクションの背景色に合わせる）
         ctx.fill();
         speed += 0.01; // 调整这个值改变动画速度
       }
